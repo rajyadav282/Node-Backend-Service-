@@ -12,7 +12,7 @@ services:
       - db_data:/var/lib/mysql
 
   app:
-    build: .
+    build: ./Dockerfilefolder
     ports:
       - "3000:3000"
     environment:
