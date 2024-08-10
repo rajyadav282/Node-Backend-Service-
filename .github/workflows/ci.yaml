@@ -16,10 +16,10 @@ jobs:
       
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v3
+        uses: mr-smithers-excellent/docker-build-push@v6
         with:
-          image: rajyadav282/syvora
+          image: docker-hub-repo/image-name
           registry: docker.io
-          username: ${{ secrects.DOCKER_USERNAME }}
-          password: ${{ secrects.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
        
