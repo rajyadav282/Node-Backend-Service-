@@ -13,20 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      
 
-      - name: Build and Push Docker image
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: Dockerfile
-          push: true
-          tags: my-docker-repo/my-docker-image:${{ github.sha }}
-          cache-from: type=registry,ref=rajyadav282/syvora:/my-docker-image:cache
-          cache-to: type=registry,ref=rajyadav282/syvora:/my-docker-image:cache,mode=max
-
-      - name: Log in to Docker Hub
-        if: github.ref == 'refs/heads/master'
-        run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          image: rajyadav282/syvora
+          registry: docker.io
+          username: ${{ secrects.DOCKER_USERNAME }}
+          password: ${{ secrects.DOCKER_PASSWORD }}
+       
