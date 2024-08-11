@@ -46,10 +46,10 @@ This project is a Node.js backend service that provides REST APIs to perform CRU
    
 ## API Endpoints
 
-1. **Post _ k** : Creates a new resource
-2. **GET /api/resource** : Retrive a specific resource by ID.
-3. **PUT /api/resource/** : Updates a specific resource by ID.
-4. **DELETE /api/resource** : Deletes a specific resource by ID
+1. **POST http://localhost:3000/users** : Creates a new resource
+2. **GET http://localhost:3000/users : Retrive a specific resource by ID.
+3. **PUT http://localhost:3000/users/** : Updates a specific resource by ID.
+4. **DELETE http://localhost:3000/users/** : Deletes a specific resource by ID
    
    
 
