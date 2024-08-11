@@ -9,10 +9,11 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  
+      # - db_data:/var/lib/mysql
 
   app:
-    build: ./Dockerfilefolder
+    build: .
     ports:
       - "3000:3000"
     environment:
@@ -26,5 +27,4 @@ services:
     volumes:
       - .:/app
 
-volumes:
-  db_data:
+
