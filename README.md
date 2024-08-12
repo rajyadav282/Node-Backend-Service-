@@ -94,6 +94,9 @@ This project is a Node.js backend service that provides REST APIs to perform CRU
              port: 80
              targetPort: 3000
          type: LoadBalancer
+```
+
+
   
 
    
