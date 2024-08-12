@@ -43,6 +43,42 @@ This project is a Node.js backend service that provides REST APIs to perform CRU
 
 1. **The CI pipeline is configured to build a Docker image and push it to your container registry whenever code is pushed to the  `master` branch.**
 2. **GitHub Actions/GitLab CI: The CI configuration is defined in .github/workflows/ci.yml**
+
+  ```bash
+  name: Build and Push Docker image to Docker Hub
+
+  on: 
+     push:
+       branches:
+         - master  
+
+
+  jobs:
+
+     push_to_registry:
+
+       name: Push Docker image to Docker Hub
+       runs-on: ubuntu-latest
+       steps:
+         - name: Check out the repo
+           uses: actions/checkout@v3
+         - name: Login to Docker Hub
+           uses: docker/login-action@v1
+           with:  
+             username: ${{ secrets.DOCKER_USERNAME }}
+             password: ${{ secrets.DOCKER_PASSWORD }}
+
+         - name: Build and push to Docker HUb
+           uses: docker/build-push-action@v2
+           with:
+             context: .
+             push: true
+             tags: rajyadav282/syvora:latest,rajyadav282/syvora:${{github.run_number}}
+
+  ```     
+        
+       
+
    
 ## API Endpoints
 
